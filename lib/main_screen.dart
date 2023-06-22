@@ -58,7 +58,7 @@ class _MainScreenState extends State<MainScreen> {
                   children: [
                     Container(
                       width: MediaQuery.of(context).size.width * 0.9,
-                      height: 120,
+                      height: MediaQuery.of(context).size.width * 0.3,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(24),
@@ -73,17 +73,16 @@ class _MainScreenState extends State<MainScreen> {
                       ),
                       child: Row(
                         children: [
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.3,
-                            height: MediaQuery.of(context).size.height * 0.3,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(24),
                             child: Image.network(
                               'https://www.discoverlosangeles.com/sites/default/files/images/2019-01/laxbw-prime-1715-hor-wide.jpg?width=1600&height=1200&fit=crop&quality=78&auto=webp',
                               fit: BoxFit.fill,
+                              width: MediaQuery.of(context).size.width * 0.3,
+                              height: MediaQuery.of(context).size.height * 0.3,
                             ),
                           ),
+                          const SizedBox(width: 16),
                           const Expanded(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -118,7 +117,13 @@ class _MainScreenState extends State<MainScreen> {
                                   ],
                                 ),
                                 SizedBox(height: 16),
-                                Text('11.1km  • 💵 💵 💵 •  Seafood'),
+                                Row(
+                                  children: [
+                                    Text('11.1km'),
+                                    Text('  • 💵 💵 💵 •  '),
+                                    Text('Seafood'),
+                                  ],
+                                ),
                               ],
                             ),
                           ),
