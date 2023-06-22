@@ -39,13 +39,16 @@ class ScrollItem extends StatelessWidget {
             ),
             child: Row(
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(24),
-                  child: Image.network(
-                    imgUrl,
-                    fit: BoxFit.fill,
-                    width: MediaQuery.of(context).size.width * 0.3,
-                    height: MediaQuery.of(context).size.height * 0.3,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(24),
+                    child: Image.network(
+                      imgUrl,
+                      fit: BoxFit.fill,
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      height: MediaQuery.of(context).size.height * 0.3,
+                    ),
                   ),
                 ),
                 const SizedBox(width: 16),
@@ -57,24 +60,24 @@ class ScrollItem extends StatelessWidget {
                         children: [
                           Text(
                             restaurant,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(width: 8),
-                          Icon(
+                          const SizedBox(width: 8),
+                          const Icon(
                             Icons.star_border,
                             color: Colors.yellow,
                           ),
-                          Text('4.5'),
+                          const Text('4.5'),
                         ],
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.where_to_vote,
                             color: Colors.grey,
                             size: 14,
@@ -82,11 +85,11 @@ class ScrollItem extends StatelessWidget {
                           Text(' $address'),
                         ],
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       Row(
                         children: [
-                          Text('11.1km'),
-                          Text('  • 💵 💵 💵 •  '),
+                          const Text('11.1km'),
+                          const Text('  • 💵 💵 💵 •  '),
                           Text(foodType),
                         ],
                       ),
