@@ -1,6 +1,6 @@
-import 'package:clone_food_delivery/components/bottom_navigation.dart';
-import 'package:clone_food_delivery/components/custom_appbar.dart';
-import 'package:clone_food_delivery/components/elevated_btn.dart';
+import 'package:clone_food_delivery/ui/components/bottom_navigation.dart';
+import 'package:clone_food_delivery/ui/components/custom_appbar.dart';
+import 'package:clone_food_delivery/ui/components/elevated_btn.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -11,7 +11,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _selectedIndex = 0;
+  final int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -48,42 +48,81 @@ class _MainScreenState extends State<MainScreen> {
               ElevatedBtn(icon: Icons.cookie_outlined, food: 'Dessert'),
             ],
           ),
+          const SizedBox(height: 8),
           Expanded(
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Stack(
+                child: Column(
                   children: [
                     Container(
-                      height: 150,
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      height: 120,
                       decoration: BoxDecoration(
                         color: Colors.white,
+                        borderRadius: BorderRadius.circular(24),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 5, // 퍼지는 범위
-                            blurRadius: 7, // 흐림 효과
+                            color: Colors.grey.withOpacity(0.2),
+                            spreadRadius: 1, // 퍼지는 범위
+                            blurRadius: 10, // 흐림 효과
                             offset: const Offset(0, 3), // 그림자 위치
                           )
                         ],
                       ),
-                      // child: Column(
-                      //   children: [
-                      //     Row(),
-                      //     Text(''),
-                      //     Row(),
-                      //   ],
-                      // ),
-                    ),
-                    Positioned(
-                      left: 8,
-                      bottom: 5,
-                      width: 150,
-                      height: 200,
-                      child: Image.network(
-                        'https://www.discoverlosangeles.com/sites/default/files/images/2019-01/laxbw-prime-1715-hor-wide.jpg?width=1600&height=1200&fit=crop&quality=78&auto=webp',
-                        fit: BoxFit.contain,
+                      child: Row(
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            height: MediaQuery.of(context).size.height * 0.3,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: Image.network(
+                              'https://www.discoverlosangeles.com/sites/default/files/images/2019-01/laxbw-prime-1715-hor-wide.jpg?width=1600&height=1200&fit=crop&quality=78&auto=webp',
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          const Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      '11 Mirrirs Rooftop',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(width: 8),
+                                    Icon(
+                                      Icons.star_border,
+                                      color: Colors.yellow,
+                                    ),
+                                    Text('4.5'),
+                                  ],
+                                ),
+                                SizedBox(height: 8),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Icon(
+                                      Icons.where_to_vote,
+                                      color: Colors.grey,
+                                      size: 14,
+                                    ),
+                                    Text(' 426 Amsterdam Ave, NY'),
+                                  ],
+                                ),
+                                SizedBox(height: 16),
+                                Text('11.1km  • 💵 💵 💵 •  Seafood'),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
