@@ -53,7 +53,14 @@ class _MainScreenState extends State<MainScreen> {
           Expanded(
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: ScrollItem(),
+              child: ScrollItem(
+                imgUrl:
+                    'https://www.discoverlosangeles.com/sites/default/files/images/2019-01/laxbw-prime-1715-hor-wide.jpg?width=1600&height=1200&fit=crop&quality=78&auto=webp',
+                restaurant: '11 Mirrirs Rooftop',
+                address: ' 426 Amsterdam Ave, NY',
+                distance: 11.1,
+                foodType: 'Seafood',
+              ),
             ),
           ),
         ],
