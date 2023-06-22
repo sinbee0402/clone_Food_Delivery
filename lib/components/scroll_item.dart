@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
 
 class ScrollItem extends StatelessWidget {
-  const ScrollItem({Key? key}) : super(key: key);
+  String imgUrl;
+  String restaurant;
+  String address;
+  double distance;
+  String foodType;
+
+  ScrollItem({
+    Key? key,
+    required this.imgUrl,
+    required this.restaurant,
+    required this.address,
+    required this.distance,
+    required this.foodType,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,21 +42,21 @@ class ScrollItem extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(24),
                   child: Image.network(
-                    'https://www.discoverlosangeles.com/sites/default/files/images/2019-01/laxbw-prime-1715-hor-wide.jpg?width=1600&height=1200&fit=crop&quality=78&auto=webp',
+                    imgUrl,
                     fit: BoxFit.fill,
                     width: MediaQuery.of(context).size.width * 0.3,
                     height: MediaQuery.of(context).size.height * 0.3,
                   ),
                 ),
                 const SizedBox(width: 16),
-                const Expanded(
+                Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Row(
                         children: [
                           Text(
-                            '11 Mirrirs Rooftop',
+                            restaurant,
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 16,
@@ -66,7 +79,7 @@ class ScrollItem extends StatelessWidget {
                             color: Colors.grey,
                             size: 14,
                           ),
-                          Text(' 426 Amsterdam Ave, NY'),
+                          Text(' $address'),
                         ],
                       ),
                       SizedBox(height: 16),
@@ -74,7 +87,7 @@ class ScrollItem extends StatelessWidget {
                         children: [
                           Text('11.1km'),
                           Text('  • 💵 💵 💵 •  '),
-                          Text('Seafood'),
+                          Text(foodType),
                         ],
                       ),
                     ],
